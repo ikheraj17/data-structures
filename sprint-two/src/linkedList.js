@@ -14,12 +14,12 @@ var LinkedList = function() {
     if(this.tail !== null){
       //
       this.tail.next = node;
-      console.log(this.tail.next);
+      //console.log(this.tail.next);
     }
     //for the first element added to list
     //(tail is null), set element as tail
     this.tail = node;
-    console.log(list);
+    //console.log(list);
   };
 
   list.removeHead = function() {
