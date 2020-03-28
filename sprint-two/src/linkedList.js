@@ -30,6 +30,13 @@ var LinkedList = function() {
 
   list.contains = function(target) {
 
+    let regex = RegExp(`${target}`);
+    //stringify object to test for existence of target
+    let stringObj = JSON.stringify(this);
+    //test occurs here with regular expression, 
+    //returns a boolean
+    return regex.test(stringObj);
+
   };
 
   return list;
