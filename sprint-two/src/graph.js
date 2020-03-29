@@ -3,7 +3,7 @@
 // Instantiate a new graph
 var Graph = function() {
     this.newGraph = {
-     
+  
     };
   };
   // Add a node to the graph, passing in the node's value.
@@ -33,11 +33,23 @@ var Graph = function() {
   
   // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
   Graph.prototype.hasEdge = function(fromNode, toNode) {
+  
+    if(this[fromNode].includes(toNode) && this[toNode].includes(fromNode)){
+      return true;
+    }
+      return false;
   };
   
   // Connects two nodes in a graph by adding an edge between them.
   Graph.prototype.addEdge = function(fromNode, toNode) {
+  //edge case to make sure both input nodes exists
+  //iterate over "this" if(fromNode and toNode exist
   
+  if(this[fromNode] && this[toNode]){
+    this[fromNode].push(toNode);
+    this[toNode].push(fromNode);
+  }
+  //push toNode into fromNode array, and vice versa
   
   };
   
@@ -52,10 +64,5 @@ var Graph = function() {
   /*
    * Complexity: What is the time complexity of the above functions?
    */
-  
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
 
 
