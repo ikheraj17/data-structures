@@ -55,6 +55,10 @@ var Graph = function() {
   
   // Remove an edge between any two specified (by value) nodes.
   Graph.prototype.removeEdge = function(fromNode, toNode) {
+    if(this[fromNode].includes(toNode) && this[toNode].includes(fromNode)){
+      this[fromNode].splice(this[fromNode].indexOf(toNode), 1);
+      this[toNode].splice(this[toNode].indexOf(fromNode), 1);
+    }
   };
   
   // Pass in a callback which will be executed on each node of the graph.
