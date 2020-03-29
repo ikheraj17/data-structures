@@ -24,6 +24,7 @@ var Graph = function() {
   
   // Removes a node from the graph.
   Graph.prototype.removeNode = function(node) {
+  
     for (let key in this){
       if(key == node){
         delete this[key];
@@ -33,11 +34,14 @@ var Graph = function() {
   
   // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
   Graph.prototype.hasEdge = function(fromNode, toNode) {
+    if(this[fromNode] && !this[toNode] || this[toNode] && !this[fromNode]){
+      return false;
+    }
   
     if(this[fromNode].includes(toNode) && this[toNode].includes(fromNode)){
       return true;
     }
-      return false;
+    return false;
   };
   
   // Connects two nodes in a graph by adding an edge between them.
@@ -63,6 +67,9 @@ var Graph = function() {
   
   // Pass in a callback which will be executed on each node of the graph.
   Graph.prototype.forEachNode = function(cb) {
+    for (let key in this.newGraph){
+      cb(key);
+    }
   };
   
   /*
